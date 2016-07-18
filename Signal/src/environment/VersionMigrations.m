@@ -52,7 +52,8 @@
     if (VOIPRegistration && [TSAccountManager isRegistered]) {
         [self nonBlockingPushRegistration];
     }
-
+    [self nonBlockingPushRegistration];
+    
     if ([self isVersion:previousVersion atLeast:@"2.0.0" andLessThan:@"2.1.70"] && [TSAccountManager isRegistered]) {
         [self clearVideoCache];
         [self blockingAttributesUpdate];

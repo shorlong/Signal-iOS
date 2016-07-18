@@ -153,21 +153,25 @@
       return [self textSecureRegistrationFuture:pushTokens];
     }];
 
-    TOCFuture *redphoneRegistrationFuture = [tsRegistrationFuture then:^id(id value) {
-      return [[self getRPRegistrationToken] then:^(NSString *registrationFuture) {
-        return [self redphoneRegistrationWithTSToken:registrationFuture
-                                           pushToken:pushTokens[0]
-                                           voipToken:([pushTokens count] == 2) ? pushTokens.lastObject : nil];
-      }];
-    }];
-
-    [redphoneRegistrationFuture thenDo:^(id value) {
+    [tsRegistrationFuture thenDo:^(id value) {
       success();
     }];
 
-    [redphoneRegistrationFuture catchDo:^(NSError *error) {
-      failure(error);
-    }];
+//    TOCFuture *redphoneRegistrationFuture = [tsRegistrationFuture then:^id(id value) {
+//      return [[self getRPRegistrationToken] then:^(NSString *registrationFuture) {
+//        return [self redphoneRegistrationWithTSToken:registrationFuture
+//                                           pushToken:pushTokens[0]
+//                                           voipToken:([pushTokens count] == 2) ? pushTokens.lastObject : nil];
+//      }];
+//    }];
+//
+//    [redphoneRegistrationFuture thenDo:^(id value) {
+//      success();
+//    }];
+//
+//    [redphoneRegistrationFuture catchDo:^(NSError *error) {
+//      failure(error);
+//    }];
 }
 
 

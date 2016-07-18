@@ -45,10 +45,10 @@ static unsigned char DH3K_PRIME[] = {
     return [Environment
                    environmentWithLogging:logging
                             andErrorNoter:errorNoter
-                            andServerPort:31337
-                  andMasterServerHostName:@"master.whispersystems.org"
+                            andServerPort:8080
+                  andMasterServerHostName:@"api.getdianbao.com"
                       andDefaultRelayName:@"relay"
-             andRelayServerHostNameSuffix:@"whispersystems.org"
+             andRelayServerHostNameSuffix:@"getdianbao.com"
                            andCertificate:[Certificate certificateFromResourcePath:@"redphone" ofType:@"cer"]
         andSupportedKeyAgreementProtocols:[self supportedKeyAgreementProtocols]
                           andPhoneManager:[PhoneManager phoneManagerWithErrorHandler:errorNoter]
